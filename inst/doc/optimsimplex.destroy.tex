@@ -1,0 +1,35 @@
+\inputencoding{utf8}
+\HeaderA{optimsimplex.destroy}{Erase Simplex Object}{optimsimplex.destroy}
+\keyword{method}{optimsimplex.destroy}
+%
+\begin{Description}\relax
+This function erases the coordinates of the vertices (\code{x}) and the
+function values (\code{fv}) in a simplex object
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+  optimsimplex.destroy(this = NULL)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{this}] A simplex object.
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Value}
+Return an updated simplex object for which the content of the \code{x} and
+\code{fv} elements were set to NULL.
+\end{Value}
+%
+\begin{Author}\relax
+Author of Scilab optimsimplex module: Michael Baudin (INRIA - Digiteo)
+
+Author of R adaptation: Sebastien Bihorel (\email{sb.pmlab@gmail.com})
+\end{Author}
+%
+\begin{SeeAlso}\relax
+\code{\LinkA{optimsimplex.new}{optimsimplex.new}}
+\end{SeeAlso}

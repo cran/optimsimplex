@@ -1,0 +1,64 @@
+\inputencoding{utf8}
+\HeaderA{optimsimplex-package}{R port of the Scilab optimsimplex module}{optimsimplex.Rdash.package}
+\aliasA{optimsimplex}{optimsimplex-package}{optimsimplex}
+\keyword{package}{optimsimplex-package}
+%
+\begin{Description}\relax
+The goal of this package is to provide a building block for optimization
+algorithms based on a simplex. The \pkg{optimsimplex} package may be used in
+the following optimization methods: \begin{itemize}
+
+\item the simplex method of Spendley et al.,
+\item the method of Nelder and Mead,
+\item the Box's algorithm for constrained optimization,
+\item the multi-dimensional search by Torczon,
+\item etc ...
+
+\end{itemize}
+
+
+\strong{Features}
+The following is a list of features currently provided:
+\begin{itemize}
+
+\item Manage various simplex initializations \begin{itemize}
+
+\item initial simplex given by user,
+\item initial simplex computed with a length and along the coordinate
+axes,
+\item initial regular simplex computed with Spendley et al. formula,
+\item initial simplex computed by a small perturbation around the initial
+guess point,
+\item initial simplex computed from randomized bounds.
+
+\end{itemize}
+
+\item sort the vertices by increasing function values,
+\item compute the standard deviation of the function values in the simplex,
+\item compute the simplex gradient with forward or centered differences,
+\item shrink the simplex toward the best vertex,
+\item etc...
+
+\end{itemize}
+
+\end{Description}
+%
+\begin{Details}\relax
+
+\Tabular{ll}{
+Package: & optimsimplex\\{}
+Type: & Package\\{}
+Version: & 1.0\\{}
+Date: & 2010-05-01\\{}
+License: & CeCILL-2\\{}
+LazyLoad: & yes
+}
+See \code{vignette('optimsimplex',package='optimsimplex')} for more
+information.
+\end{Details}
+%
+\begin{Author}\relax
+Author of Scilab optimsimplex module: Michael Baudin (INRIA - Digiteo)
+
+Author of R adaptation: Sebastien Bihorel (\email{sb.pmlab@gmail.com})
+\end{Author}

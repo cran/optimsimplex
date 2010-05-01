@@ -1,0 +1,90 @@
+\inputencoding{utf8}
+\HeaderA{Set functions}{Optimsimplex Set Function Class}{Set functions}
+\aliasA{optimsimplex.setall}{Set functions}{optimsimplex.setall}
+\aliasA{optimsimplex.setallfv}{Set functions}{optimsimplex.setallfv}
+\aliasA{optimsimplex.setallx}{Set functions}{optimsimplex.setallx}
+\aliasA{optimsimplex.setfv}{Set functions}{optimsimplex.setfv}
+\aliasA{optimsimplex.setn}{Set functions}{optimsimplex.setn}
+\aliasA{optimsimplex.setnbve}{Set functions}{optimsimplex.setnbve}
+\aliasA{optimsimplex.setve}{Set functions}{optimsimplex.setve}
+\aliasA{optimsimplex.setx}{Set functions}{optimsimplex.setx}
+\keyword{method}{Set functions}
+%
+\begin{Description}\relax
+The functions assign content to various elements of a simplex object:
+\begin{description}
+
+\item[\code{optimsimplex.setall}] Set all the coordinates and the function
+values of all the vertices.
+\item[\code{optimsimplex.setallfv}] Set all the function values of all the
+vertices.
+\item[\code{optimsimplex.setallx}] Set all the coordinates of all the
+vertices.
+\item[\code{optimsimplex.setfv}] Set the function value at a givenindex.
+\item[\code{optimsimplex.setn}] Set the dimension of the space of the
+simplex.
+\item[\code{optimsimplex.setnbve}] Set the number of vertices of the
+simplex.
+\item[\code{optimsimplex.setve}] Set the coordinates of the vertex and the
+function values at a given index in the current simplex.
+\item[\code{optimsimplex.setx}] Set the coordinates of the vertex at a given
+index in the current simplex.
+
+\end{description}
+
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+  optimsimplex.setall(this = NULL, simplex = NULL)
+  optimsimplex.setallfv(this = NULL, fv = NULL)
+  optimsimplex.setallx(this = NULL, x = NULL)
+  optimsimplex.setfv(this = NULL, ive = NULL, fv = NULL)
+  optimsimplex.setn(this = NULL, n = NULL)
+  optimsimplex.setnbve(this = NULL, nbve = NULL)
+  optimsimplex.setve(this = NULL, ive = NULL, fv = NULL, x = NULL)
+  optimsimplex.setx(this = NULL, ive = NULL, x = NULL)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{this}] A simplex object.
+\item[\code{simplex}] The simplex to set. It is expected to be a nbve x n+1 matrix
+where n is the dimension of the space, nbve is the number of vertices and
+with the following content: \begin{itemize}
+
+\item \code{simplex[k,1]} is the function value of the vertex k, with k =
+1 to nbve,
+\item \code{simplex[k,2:(n+1)]} is the coordinates of the vertex k, with
+k = 1 to nbve.
+
+\end{itemize}
+
+
+\item[\code{fv}] A row vector of function values; \code{fv[k]} is expected to be the
+function value for the vertex k, with k = 1 to nbve. For
+\code{optimsimplex.setfv}, \code{fv} is expected to be a numerical scalar.
+\item[\code{x}] The nbve x n matrix of vertice coordinates; the vertex is expected to
+be stored in \code{x[k,1:n]}, with k = 1 to nbve. For
+\code{optimsimplex.setve} and \code{optimsimplex.setx}, \code{x} is expected
+to be a row matrix.
+\item[\code{ive}] Vertex index.
+\item[\code{n}] The dimension of the space of the simplex.
+\item[\code{nbve}] The number of vertices of the simplex.
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Value}
+Return a updated simplex object \code{this}.
+\end{Value}
+%
+\begin{Author}\relax
+Author of Scilab optimsimplex module: Michael Baudin (INRIA - Digiteo)
+
+Author of R adaptation: Sebastien Bihorel (\email{sb.pmlab@gmail.com})
+\end{Author}
+%
+\begin{SeeAlso}\relax
+\code{\LinkA{optimsimplex.new}{optimsimplex.new}}
+\end{SeeAlso}

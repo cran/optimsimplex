@@ -1,0 +1,52 @@
+\inputencoding{utf8}
+\HeaderA{optimsimplex.print}{Simplex Formatting and Display}{optimsimplex.print}
+\aliasA{optimsimplex.tostring}{optimsimplex.print}{optimsimplex.tostring}
+\keyword{method}{optimsimplex.print}
+%
+\begin{Description}\relax
+\code{optimsimplex.tostring} formats the coordinates and function values in a
+character vector.
+
+\code{optimsimplex.print} displays to screen the content of the current
+simplex with dimensions, coordinates and function values. This function calls
+\code{optimsimplex.tostring} to format the content of the simplex.
+\end{Description}
+%
+\begin{Usage}
+\begin{verbatim}
+  optimsimplex.print(this = NULL)
+  optimsimplex.tostring(this = NULL)
+\end{verbatim}
+\end{Usage}
+%
+\begin{Arguments}
+\begin{ldescription}
+\item[\code{this}] A simplex object.
+\end{ldescription}
+\end{Arguments}
+%
+\begin{Value}
+\code{optimsimplex.tostring} returns a vector of character string of length
+nbve, where nbve is the number of vertices.
+
+\code{optimsimplex.print} does not return any value but print to screen (or
+log file) the content of the current simplex.
+\end{Value}
+%
+\begin{Author}\relax
+Author of Scilab optimsimplex module: Michael Baudin (INRIA - Digiteo)
+
+Author of R adaptation: Sebastien Bihorel (\email{sb.pmlab@gmail.com})
+\end{Author}
+%
+\begin{SeeAlso}\relax
+\code{\LinkA{optimsimplex.new}{optimsimplex.new}}
+\end{SeeAlso}
+%
+\begin{Examples}
+\begin{ExampleCode}
+  opt <- optimsimplex.new(method='axes',x0=1:5)$newobj
+  optimsimplex.tostring(opt)
+  optimsimplex.print(opt)
+\end{ExampleCode}
+\end{Examples}
