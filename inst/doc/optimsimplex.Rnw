@@ -186,13 +186,14 @@ Pfeffer at Stanford and it is used in the \code{fminsearch} function from the
 \pkg{neldermead} package.
 
 \section{References}
-The functions distributed in \optimsimplex{} are also based upon the following
-bibliography: \cite{neldermead.1965}, \cite{kelley.1999}, \cite{han.2006},
-\cite{torczon.1989}, \cite{burmen.2006}, and \cite{price.2002}.
+The functions distributed in \optimsimplex{} are also based upon the work from
+Nelder and Mead \cite{neldermead.1965}, Kelley \cite{kelley.1999}, Han and
+Neumann \cite{han.2006}, Torczon \cite{torczon.1989}, Burmen et al.
+\cite{burmen.2006}, and Price and al. \cite{price.2002}.
 % Bibliography
 \bibliographystyle{plain}
 \renewcommand*{\refname}{}
-\bibliography{optimsimplex.bib}
+\bibliography{optimsimplex}
 
 \section{Network of \optimsimplex{} functions}
 The network of functions provided in \optimsimplex{} is illustrated in the
