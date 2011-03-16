@@ -22,7 +22,7 @@ optimsimplex.size <- function(this=NULL,method=NULL){
 
   if (method=='Nash'){
     v1 <- matrix(rep(this$x[1,],nv-1),nrow=nv-1,byrow=TRUE)
-    edges <- this$x[2:nv,] - v1
+    edges <- this$x[2:nv,,drop=FALSE] - v1
     abedges <- abs(edges)
     n1 <- apply(abedges,1,sum)
     ssize <- sum (n1)
@@ -31,20 +31,20 @@ optimsimplex.size <- function(this=NULL,method=NULL){
     ssize <- 0.0
     for (i in 1:nv){
       vi <- matrix(rep(this$x[i,],nv),nrow=nv,byrow=TRUE)
-      edges <- vi - this$x[1:nv,]
+      edges <- vi - this$x[1:nv,,drop=FALSE]
       n2 <- sqrt(apply(edges^2,1,sum))
       ssize <- max(c(max(n2),ssize))
     }
   }
   if (method=='sigmaplus'){
     v1 <- matrix(rep(this$x[1,],nv-1),nrow=nv-1,byrow=TRUE)
-    edges <- this$x[2:nv,] - v1
+    edges <- this$x[2:nv,,drop=FALSE] - v1
     n2 <- sqrt(apply(edges^2,1,sum))
     ssize <- max(n2)
   }
   if (method=='sigmaminus'){
     v1 <- matrix(rep(this$x[1,],nv-1),nrow=nv-1,byrow=TRUE)
-    edges <- this$x[2:nv,] - v1
+    edges <- this$x[2:nv,,drop=FALSE] - v1
     n2 <- sqrt(apply(edges^2,1,sum))
     ssize <- min(n2)
   }

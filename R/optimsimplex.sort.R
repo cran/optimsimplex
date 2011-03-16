@@ -15,7 +15,7 @@ optimsimplex.sort <- function(this=NULL){
 
   is <- order(this$fv)
   this$fv <- transpose(this$fv[is,])
-  this$x <- this$x[is,]
+  this$x <- this$x[is,,drop=FALSE]
 
   return(this)
 

@@ -14,8 +14,8 @@
 optimsimplex.getall <- function(this=NULL){
 
   simplex <- matrix(0,nrow=this$nbve,ncol=this$n+1)
-  simplex[1:this$nbve,1] <- this$fv[1:this$nbve,1]
-  simplex[1:this$nbve,2:this$n+1] <- this$x[1:this$nbve,1:this$n]
+  simplex[1:this$nbve,1] <- this$fv[1:this$nbve,1,drop=FALSE]
+  simplex[1:this$nbve,2:this$n+1] <- this$x[1:this$nbve,1:this$n,drop=FALSE]
 
   return(simplex)
 

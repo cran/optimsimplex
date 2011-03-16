@@ -16,7 +16,7 @@ optimsimplex.getve <- function(this=NULL,ive=NULL){
   vertex <- list(x=NULL,n=NULL,fv=NULL)
   attr(vertex,'type') <- 'T_VERTEX'
   vertex$n <- this$n
-  vertex$x <- this$x[ive,]
+  vertex$x <- this$x[ive,,drop=FALSE]
   vertex$fv <- this$fv[ive]
 
   return(vertex)

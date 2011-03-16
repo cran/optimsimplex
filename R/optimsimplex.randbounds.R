@@ -54,7 +54,7 @@ optimsimplex.randbounds <- function(x0=NULL,fun=NULL,boundsmin=NULL,
   #
   # Set all points
   #
-  newobj$x[1,1:n] <- x0[1:n]
+  newobj$x[1,1:n] <- x0[1:n,drop=FALSE]
 
   #
   # Set points #2 to #nbve, by randomizing the bounds

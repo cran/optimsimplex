@@ -1,3 +1,14 @@
+2011/03/16 Sebastien Bihorel <sb.pmlab@gmail.com>
+
+  * Correction of a bug affecting multiple function when optimsimplex was used 
+  in an optimization problem with only one parameter. List of corrected 
+  functions are: optimsimplex.coords, optimsimplex.getall, optimsimplex.getallfv,
+  optimsimplex.getallx, optimsimplex.getve, optimsimplex.getx, 
+  optimsimplex.oriented, optimsimplex.randbounds, optimsimplex.reflect,
+  optimsimplex.setallx, optimsimplex.shrink, optimsimplex.size,
+  optimsimplex.sort, optimsimplex.spendley, and optimsimplex.xbar
+   
+  
 2010/05/11 Sebastien Bihorel <sb.pmlab@gmail.com>
 
   * optimsimplex.Rnw: corrected \bibliography{optimsimplex.bib} to

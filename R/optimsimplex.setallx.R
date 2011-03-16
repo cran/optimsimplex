@@ -23,7 +23,7 @@ optimsimplex.setallx <- function(this=NULL,x=NULL){
     stop(sprintf('optimsimplex.setallx: The number of columns in x is %d, while expected %d.',
                  nx2,this$n),
          call.=FALSE)
-  this$x[1:this$nbve,1:this$n] <- x[1:this$nbve,1:this$n]
+  this$x[1:this$nbve,1:this$n] <- x[1:this$nbve,1:this$n,drop=FALSE]
 
   return(this)
 

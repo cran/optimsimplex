@@ -13,7 +13,7 @@
 
 optimsimplex.getx <- function(this=NULL,ive=NULL){
 
-  x <- this$x[ive,]
+  x <- this$x[ive,,drop=FALSE]
 
   return(x)
   

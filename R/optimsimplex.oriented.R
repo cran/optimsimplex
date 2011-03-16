@@ -46,13 +46,13 @@ optimsimplex.oriented <- function(simplex0=NULL,fun=NULL,data=NULL){
   newobj$fv <- matrix(0,nrow=n+1,ncol=1)
 
   # Store all points
-  x1 <- simplex0$x[1,1:n]
+  x1 <- simplex0$x[1,1:n,drop=FALSE]
   newobj$x[1:(n+1),1:n] <- matrix(rep(x1,n+1),nrow=n+1,byrow=TRUE)
 
   # Retrieve the function value for the first simplex
   # This saves one function evaluation
   newobj$fv[1] <- simplex0$fv[1]
-  newobj$x[2:(n+1),1:n] <- mid[1:n,1:n] + newobj$x[2:(n+1),1:n]
+  newobj$x[2:(n+1),1:n] <- mid[1:n,1:n,drop=FALSE] + newobj$x[2:(n+1),1:n,drop=FALSE]
 
   # Compute Function Value
   if (!is.null(fun)){

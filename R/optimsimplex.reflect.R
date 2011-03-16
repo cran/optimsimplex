@@ -20,10 +20,10 @@ optimsimplex.reflect <- function(this=NULL,fun=NULL,data=NULL){
   r$nbve <- nv
   r$x <- matrix(0,nrow=nv,ncol=n)
   r$fv <- matrix(0,nrow=nv,ncol=1)
-  r$x[1,1:n] <- this$x[1,1:n]
+  r$x[1,1:n] <- this$x[1,1:n,drop=FALSE]
   r$fv[1] <- this$fv[1]
   twox1 <- matrix(rep(2*this$x[1,1:n],nv-1),nrow=nv-1,byrow=TRUE)
-  r$x[2:nv,1:r$n] <- twox1 - this$x[2:nv,1:n]
+  r$x[2:nv,1:r$n] <- twox1 - this$x[2:nv,1:n,drop=FALSE]
 
   tmp <- optimsimplex.compsomefv(this=r,fun=fun,indices=2:nv,data=data)
     r <- tmp$this

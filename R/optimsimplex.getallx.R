@@ -12,8 +12,8 @@
 # originally written by Michael Baudin for Scilab.
 
 optimsimplex.getallx <- function(this=NULL){
-
-  x <- this$x[1:this$nbve,1:this$n]
+  
+  x <- this$x[1:this$nbve,1:this$n,drop=FALSE]
   
   return(x)
 

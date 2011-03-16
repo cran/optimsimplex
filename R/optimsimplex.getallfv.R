@@ -13,7 +13,7 @@
 
 optimsimplex.getallfv <- function(this=NULL){
 
-  fv <- this$fv[1:this$nbve,1]
+  fv <- this$fv[1:this$nbve,1,drop=FALSE]
 
   return(fv)
 

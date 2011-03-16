@@ -47,8 +47,8 @@ optimsimplex.spendley <- function(x0=NULL,fun=NULL,len=NULL,data=NULL){
   #
   nv <- newobj$nbve
   newobj$x[1:nv,] <- matrix(rep(x0[1:n],nv),nrow=nv,byrow=TRUE)
-  newobj$x[2:nv,] <- newobj$x[2:nv,] + diag(rep(p,n)) + matrix(q,nrow=n,ncol=n)-
-                     diag(rep(q,n))
+  newobj$x[2:nv,] <- newobj$x[2:nv,,drop=FALSE] + diag(rep(p,n)) + 
+                     matrix(q,nrow=n,ncol=n) - diag(rep(q,n))
 
   # Compute Function Value
   if (!is.null(fun)){

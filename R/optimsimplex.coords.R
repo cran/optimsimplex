@@ -44,7 +44,7 @@ optimsimplex.coords <- function(coords=NULL,fun=NULL,data=NULL){
            call.=FALSE)
     newobj$n <- n
     newobj$nbve <- nbve
-    newobj$x <- coords[1:nbve,1:n]
+    newobj$x <- coords[1:nbve,1:n,drop=FALSE]
     
     if (!is.null(fun)){
       tmp <- optimsimplex.computefv(this=newobj,fun=fun,data=data)

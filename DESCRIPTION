@@ -1,8 +1,8 @@
 Package: optimsimplex
 Type: Package
 Title: R port of the Scilab optimsimplex module
-Version: 1.0-2
-Date: 2010-05-11
+Version: 1.0-3
+Date: 2011-03-16
 Author: Sebastien Bihorel, Michael Baudin (author of the original
         module)
 Maintainer: Sebastien Bihorel <sb.pmlab@gmail.com>
@@ -15,6 +15,6 @@ Description: Provides a building block for optimization algorithms
 Depends: optimbase
 License: CeCILL-2
 LazyLoad: yes
-Packaged: 2010-05-12 01:25:05 UTC; sebastien
+Packaged: 2011-03-16 23:12:03 UTC; sebastien
 Repository: CRAN
-Date/Publication: 2010-05-12 07:22:05
+Date/Publication: 2011-03-17 05:46:17

@@ -15,8 +15,8 @@ optimsimplex.shrink <- function(this=NULL,fun=NULL,sigma=0.5,data=NULL){
   
   nv <- this$nbve
   mv1 <- matrix(rep(this$x[1,],nv-1),nrow=nv-1,byrow=TRUE)
-  newx <- (1.0-sigma)*mv1 + sigma*this$x[2:nv,]
-  this$x[2:nv,] <- newx[1:(nv-1),]
+  newx <- (1.0-sigma)*mv1 + sigma*this$x[2:nv,,drop=FALSE]
+  this$x[2:nv,] <- newx[1:(nv-1),,drop=FALSE]
 
   tmp <- optimsimplex.compsomefv(this=this,fun=fun,indices=2:nv,data=data)
     this <- tmp$this
