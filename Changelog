@@ -1,3 +1,7 @@
+2011/03/30 Sebastien Bihorel <sb.pmlab@gmail.com>
+
+  * Corrected encoding of vignette source (latin1 instead of utf8x)
+
 2011/03/16 Sebastien Bihorel <sb.pmlab@gmail.com>
 
   * Correction of a bug affecting multiple function when optimsimplex was used 

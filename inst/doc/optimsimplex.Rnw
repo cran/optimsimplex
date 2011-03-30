@@ -6,7 +6,7 @@
 % Load packages
 \usepackage{Rd}
 \usepackage{ucs}
-\usepackage[utf8x]{inputenc}
+\usepackage[latin1]{inputenc}
 \usepackage{fontenc}
 \usepackage{amsmath}    % need for subequations
 \usepackage{amsfonts}
@@ -26,7 +26,7 @@
 \newcommand{\optimsimplex}{\pkg{optimsimplex}}
 
 \title{The optimsimplex Package - version 1.0-3} 
-\author{Sébastien Bihorel}
+\author{S\'ebastien Bihorel}
 
 \begin{document}
 \maketitle
