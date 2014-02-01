@@ -1,40 +1,27 @@
-\name{optimsimplex.new}
-\alias{optimsimplex.new}
-\alias{optimsimplex.coords}
-\alias{optimsimplex.axes}
-\alias{optimsimplex.pfeffer}
-\alias{optimsimplex.randbounds}
-\alias{optimsimplex.spendley}
-\alias{optimsimplex.oriented}
+\name{optimsimplex}
+\alias{optimsimplex}
+\alias{print.optimsimplex}
+\alias{is.optimsimplex}
+\alias{optimsimplex.tostring}
 \title{
-  Creates a Simplex Object
+  S3 optimsimplex class
 }
 \description{
-  \code{optimsimplex.new} creates a simplex list object which contains, among
-  other elements, a matrix of vertices and a vector of function values
-  calculated at those vertices. The object is actually created by a secondary
-  function based upon the value of the \code{method} argument:\describe{
-    \item{NULL}{-> \code{optimsimplex.coords}}
-    \item{'axes'}{-> \code{optimsimplex.axes}}
-    \item{'pfeffer'}{-> \code{optimsimplex.pfeffer}}
-    \item{'randbounds'}{->  \code{optimsimplex.randbounds}}
-    \item{'spendley'}{->  \code{optimsimplex.spendley}}
-    \item{'oriented'}{-> \code{optimsimplex.oriented}}
-  }
+  These functions support the S3 class 'optimsimplex' and are intended to either 
+  create objects of this class or check if an object is of this class.
 }
 \usage{
-  optimsimplex.new(coords = NULL, fun = NULL, data = NULL, method = NULL,
-                   x0 = NULL, len = NULL, deltausual = NULL, deltazero = NULL,
-                   boundsmax = NULL, boundsmin = NULL, nbve = NULL,
-                   simplex0 = NULL)
-  optimsimplex.coords(coords = NULL, fun = NULL, data = NULL)
-  optimsimplex.axes(x0 = NULL, fun = NULL, len = NULL, data = NULL)
-  optimsimplex.pfeffer(x0 = NULL, fun = NULL, deltausual = NULL,
-                       deltazero = NULL, data = NULL)
-  optimsimplex.randbounds(x0 = NULL, fun = NULL, boundsmin = NULL,
-                          boundsmax = NULL, nbve = NULL, data = NULL)
-  optimsimplex.spendley(x0 = NULL, fun = NULL, len = NULL, data = NULL)
-  optimsimplex.oriented(simplex0 = NULL, fun = NULL, data = NULL)
+  optimsimplex(coords = NULL, fun = NULL, data = NULL, method = NULL,
+               x0 = NULL, len = NULL, deltausual = NULL, deltazero = NULL,
+               boundsmax = NULL, boundsmin = NULL, nbve = NULL,
+               simplex0 = NULL)
+  
+  optimsimplex.tostring(x)
+  
+  \method{print}{optimsimplex}(x,...)
+  
+  \method{is}{optimsimplex}(x)
+  
 }
 \arguments{
   \item{coords}{The matrix of point estimate coordinates in the simplex. The
@@ -76,19 +63,20 @@
     \code{method} is set to 'randbounds'.}
   \item{simplex0}{The initial simplex. Only used if \code{method} is set to
     'oriented'.}
+  \item{x}{An object of class 'optimsimplex'.}
+  \item{...}{optional arguments to 'print' or 'plot' methods.}
 }
 \details{
-  All arguments of \code{optimsimplex.new} are optional. If no input is provided,
-  the new simplex object is empty.
+  All arguments of \code{optimsimplex} are optional. If no input is provided,
+  the new optimsimplex object is empty.
 
-  If \code{method} is NULL, the new simplex object is created by
-  \code{optimsimplex.coords}. If \code{coords} is NULL, the simplex object is
-  empty; otherwise, \code{coords} is used as the initial vertice coordinates
+  If \code{method} is NULL, the new optimsimplex object is created by
+  \code{optimsimplex.coords}. If \code{coords} is NULL, the optimsimplex object 
+  is empty; otherwise, \code{coords} is used as the initial vertice coordinates
   in the new simplex.
 
-  If \code{method} is set to 'axes', the new simplex object is created by
-  \code{optimsimplex.axes}. The initial vertice coordinates are stored in a nbve
-  x n matrix built as follows:\tabular{llcccrclcccr}{
+  If \code{method} is set to 'axes', the initial vertice coordinates are stored 
+  in a nbve x n matrix built as follows:\tabular{llcccrclcccr}{
     [,1] \tab| \tab x0[1] \tab.... \tab x0[n] \tab | \tab \tab | \tab len[1]
       \tab... \tab 0 \tab| \cr
     [,.] \tab| \tab... \tab... \tab... \tab | \tab + \tab | \tab... \tab...
@@ -97,33 +85,37 @@
       \tab... \tab len[n] \tab| \cr
   }
   
-  If \code{method} is set to 'pfeffer', the new simplex object is created by
-  \code{optimsimplex.pfeffer} using the Pfeffer's method, i.e. a relative delta
-  for non-zero values and an absolute delta for zero values.
+  If \code{method} is set to 'pfeffer', the new optimsimplex object is created 
+  using the Pfeffer's method, i.e. a relative delta for non-zero values and an 
+  absolute delta for zero values.
 
-  If \code{method} is set to 'randbounds', the new simplex object is created by
-  \code{optimsimplex.randbounds}. The initial vertice coordinates are stored in
-  a nbve x n matrix consisting of the initial point estimates (on the first
-  row) and a (nbve-1) x n matrix of randomly sampled numbers between the
-  specified the bounds. The number of vertices \code{nbve} in the simplex is
-  arbitrary.
+  If \code{method} is set to 'randbounds', the initial vertice coordinates are 
+  stored in a nbve x n matrix consisting of the initial point estimates (on the 
+  first row) and a (nbve-1) x n matrix of randomly sampled numbers between the
+  specified the bounds. The number of vertices \code{nbve} in the optimsimplex 
+  is arbitrary.
 
-  If \code{method} is set to 'spendley', the new simplex object is created by
-  \code{optimsimplex.spendley} using the Spendely's method, i.e. a regular
-  simplex made of nbve = n+1 vertices. 
+  If \code{method} is set to 'spendley', the new optimsimplex object is created 
+  using the Spendely's method, i.e. a regular simplex made of nbve = n+1 
+  vertices. 
 
-  If \code{method} is set to 'oriented', the new simplex object is created by
-  \code{optimsimplex.oriented} in sorted order. The new simplex has the same
-  sigma- length of the base simplex, but is "oriented" depending on the function
-  value. The created simplex may be used, as Kelley suggests, for a restart of
-  Nelder-Mead algorithm.
+  If \code{method} is set to 'oriented', the new optimsimplex object is created 
+  in sorted order. The new simplex has the same sigma- length of the base 
+  simplex, but is "oriented" depending on the function value. The created 
+  optimsimplex may be used, as Kelley suggests, for a restart of Nelder-Mead 
+  algorithm.
+  
+  The \code{optimsimplex.tostring} function is a utility function, which formats
+  the content of a optimsimplex object into a single string of characters.
+  
 }
 \value{
-  Return a list with the following elements: \describe{
-    \item{newobj}{A list with a 'type' attribute set to 'T_SIMPLEX' and with
-    the following elements: \describe{
+  The \code{optimsimplex} function returns a list with the following elements: 
+  \describe{
+    \item{newobj}{An object of class 'simplex', i.e. a list with the following 
+      elements: \describe{
       \item{verbose}{The verbose option, controlling the amount of messages.
-        Set to 0.}
+        Set to FALSE.}
       \item{x}{The coordinates of the vertices, with size nbve x n.}
       \item{n}{The dimension of the space.}
       \item{fv}{The values of the function at given vertices. It is a column
@@ -133,6 +125,7 @@
     }
     \item{data}{The updated \code{data} input argument.}
   }
+  
 }
 \references{
 "A Simplex Method for Function Minimization", Nelder, J. A. and Mead, R. The
@@ -173,15 +166,15 @@ February 26, 2002, McMaster University
   myfun <- function(x,this){return(list(f=sum(x^2),this=this))}
   mat <- matrix(c(0,1,0,0,0,1),ncol=2)
   
-  optimsimplex.new()
-  optimsimplex.new(coords=mat,x0=1:4,fun=myfun)
-  optimsimplex.new(method='axes',x0=1:4,fun=myfun)
-  optimsimplex.new(method='pfeffer',x0=1:6,fun=myfun)
-  opt <- optimsimplex.new(method='randbounds',x0=1:6,boundsmin=rep(0,6),
+  optimsimplex()
+  optimsimplex(coords=mat,x0=1:4,fun=myfun)
+  optimsimplex(method='axes',x0=1:4,fun=myfun)
+  optimsimplex(method='pfeffer',x0=1:6,fun=myfun)
+  opt <- optimsimplex(method='randbounds',x0=1:6,boundsmin=rep(0,6),
                           boundsmax=rep(10,6),fun=myfun)
   opt
-  optimsimplex.new(method='spendley',x0=1:6,fun=myfun,len=10)
-  optimsimplex.new(method='oriented',simplex=opt$newobj,fun=myfun)
+  optimsimplex(method='spendley',x0=1:6,fun=myfun,len=10)
+  optimsimplex(method='oriented',simplex=opt$newobj,fun=myfun)
  
 }
 \keyword{ method }

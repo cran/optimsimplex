@@ -1,3 +1,19 @@
+2014/01/26 Sebastien Bihorel <sb.pmlab@gmail.com>
+
+  * Change vignette data location to comply to R 3.0 requirements
+  * Add NAMESPACE
+  * Rename .Rnw file due to creation of optimbase.tex doc file
+  * Formal creation of "existing" or new classes:
+    - optimsimplex
+    - simplex
+    - vertex
+  * Add is and print methods for 3 new classes
+  * optimsimplex: replace optimsimplex.new and include method option to create 
+  simplex object based upon 6 pre-existing methods (axes, coords, etc...)
+  * deprecated function: optimsimplex.new, optimsimplex.axes, 
+  optimsimplex.coords, optimsimplex.oriented, optimsimplex.pfeffer,
+  optimsimplex.randbounds, optimsimplex.spendley, optimsimplex.print. 
+  
 2011/03/30 Sebastien Bihorel <sb.pmlab@gmail.com>
 
   * Corrected encoding of vignette source (latin1 instead of utf8x)

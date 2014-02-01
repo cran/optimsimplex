@@ -109,6 +109,6 @@
   6.2
 }
 \seealso{
-  \code{\link[optimsimplex]{optimsimplex.new}}
+  \code{\link[optimsimplex]{optimsimplex}}
 }
 \keyword{ method }

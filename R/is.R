@@ -1,5 +1,3 @@
-# Copyright (C) 2008-2009 - INRIA - Michael Baudin
-# Copyright (C) 2009-2010 - DIGITEO - Michael Baudin
 # Copyright (C) 2010-2014 - Sebastien Bihorel
 #
 # This file must be used under the terms of the CeCILL.
@@ -8,14 +6,21 @@
 # are also available at
 # http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
 #
-# This source code is a R port of the optimsimplex component
-# originally written by Michael Baudin for Scilab.
 
-optimsimplex.getx <- function(this=NULL,ive=NULL){
-
-  x <- this$x[ive,,drop=FALSE]
-
-  return(x)
+is.optimsimplex <- function(x=NULL){
+  
+  inherits(x,'optimsimplex')
   
 }
 
+is.simplex <- function(x=NULL){
+  
+  inherits(x,'simplex')
+  
+}
+
+is.vertex <- function(x=NULL){
+  
+  inherits(x,'vertex')
+  
+}

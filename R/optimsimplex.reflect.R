@@ -1,6 +1,6 @@
 # Copyright (C) 2008-2009 - INRIA - Michael Baudin
 # Copyright (C) 2009-2010 - DIGITEO - Michael Baudin
-# Copyright (C) 2010 - Sebastien Bihorel
+# Copyright (C) 2010-2014 - Sebastien Bihorel
 #
 # This file must be used under the terms of the CeCILL.
 # This source file is licensed as described in the file COPYING, which
@@ -15,7 +15,7 @@ optimsimplex.reflect <- function(this=NULL,fun=NULL,data=NULL){
 
   nv <- this$nbve
   n <- this$n
-  r <- optimsimplex.new()$this
+  r <- vertex() 
   r$n <- n
   r$nbve <- nv
   r$x <- matrix(0,nrow=nv,ncol=n)

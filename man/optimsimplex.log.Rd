@@ -23,6 +23,6 @@
   Author of R adaptation: Sebastien Bihorel (\email{sb.pmlab@gmail.com})
 }
 \seealso{
-  \code{\link[optimsimplex]{optimsimplex.new}}
+  \code{\link[optimsimplex]{optimsimplex}}
 }
 \keyword{ method }

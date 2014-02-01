@@ -64,8 +64,8 @@
     \item{\code{optimsimplex.getfv}}{Return a numeric scalar.}
     \item{\code{optimsimplex.getn}}{Return a numeric scalar.}
     \item{\code{optimsimplex.getnbve}}{Return a numeric scalar.}
-    \item{\code{optimsimplex.getve}}{Return a list with a 'type' attribute set
-      to 'T_VERTEX' and with the following elements: \describe{
+    \item{\code{optimsimplex.getve}}{Return an object of class 'vertex', i.e. a
+     list with the following elements: \describe{
         \item{n}{The dimension of the space of the simplex.}
         \item{x}{The coordinates of the vertex at index \code{ive}.}
         \item{fv}{The value of the function at index \code{ive}.}
@@ -83,6 +83,6 @@
   Author of R adaptation: Sebastien Bihorel (\email{sb.pmlab@gmail.com})
 }
 \seealso{
-  \code{\link[optimsimplex]{optimsimplex.new}}
+  \code{\link[optimsimplex]{optimsimplex}}
 }
 \keyword{ method }
