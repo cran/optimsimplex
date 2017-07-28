@@ -1,3 +1,7 @@
+2017/07/22 Sebastien Bihorel <sb.pmlab@gmail.com>
+  
+  * Bug fix in optimsimplex for Spendley method
+
 2014/01/26 Sebastien Bihorel <sb.pmlab@gmail.com>
 
   * Change vignette data location to comply to R 3.0 requirements

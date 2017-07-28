@@ -1,6 +1,7 @@
 exportPattern("^[^\\.]")
 import(methods)
 import(optimbase)
+importFrom("stats", "runif", "var")
 S3method(print,optimsimplex)
 S3method(print,simplex)
 S3method(print,vertex)

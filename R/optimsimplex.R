@@ -1,6 +1,6 @@
 # Copyright (C) 2008-2009 - INRIA - Michael Baudin
 # Copyright (C) 2009-2010 - DIGITEO - Michael Baudin
-# Copyright (C) 2010-2014 - Sebastien Bihorel
+# Copyright (C) 2010-2017 - Sebastien Bihorel
 #
 # This file must be used under the terms of the CeCILL.
 # This source file is licensed as described in the file COPYING, which
@@ -91,7 +91,7 @@ optimsimplex <- function(coords=NULL,fun=NULL,data=NULL,method=NULL,
        len <- 1
       }else{
         assert.classreal(var=len,varname='len',ivar=3)
-        if (size(len,1)!=1 | size(len,2)!=1 )
+        if (size(len,1)!=1)
           stop(sprintf('optimsimplex: The len vector is expected to be a row matrix, but current shape is %d x %d',
                        size(len,1),size(len,2)),
                call.=FALSE)

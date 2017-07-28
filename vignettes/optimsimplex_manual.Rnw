@@ -6,7 +6,7 @@
 % Load packages
 \usepackage{Sweave}
 \usepackage{Rd}
-\usepackage{ucs}
+%\usepackage{ucs}
 \usepackage[latin1]{inputenc}
 \usepackage{fontenc}
 \usepackage{amsmath}    % need for subequations
@@ -25,7 +25,7 @@
 % Defines some custom commands
 \newcommand{\optimsimplex}{\pkg{optimsimplex}}
 
-\title{The optimsimplex Package - version 1.0-5} 
+\title{The optimsimplex Package - version 1.0-6} 
 \author{S\'ebastien Bihorel}
 
 \begin{document}
