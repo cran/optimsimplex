@@ -35,7 +35,7 @@ mycostf <- function(x, this){
 
 mystuff <- list(nb=0)
 
-tmp <- optimsimplex(x0=c(-1.2,1.0), fun=mycostf,method='randbounds',
+tmp <- optimsimplex(x0=c(-1.2,1.0), fun=mycostf, method='randbounds',
                     boundsmin=c(-5.0,-5.0), boundsmax=c(5.0,5.0), nbve=5, 
                     data=mystuff)
 

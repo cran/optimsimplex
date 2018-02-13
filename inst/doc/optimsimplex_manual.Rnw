@@ -25,7 +25,7 @@
 % Defines some custom commands
 \newcommand{\optimsimplex}{\pkg{optimsimplex}}
 
-\title{The optimsimplex Package - version 1.0-6} 
+\title{The optimsimplex Package - version 1.0-7} 
 \author{S\'ebastien Bihorel}
 
 \begin{document}
@@ -76,7 +76,7 @@ quieried at will. The simplex can also be reflected or shrinked. The simplex
 gradient can be computed with a order 1 forward formula and with a order 2
 centered formula.
 
-The \code{optimsimplex.new} function allows to create a simplex. If vertices
+The \code{optimsimplex} function allows to create a simplex. If vertices
 coordinates are given, there are registered in the simplex. If a function is
 provided, it is evaluated at each vertex. Several functions allow
 to create a simplex with special shapes and methods, including axes-by-axes
@@ -153,7 +153,7 @@ mycostf <- function(x, this){
 
 mystuff <- list(nb=0)
 
-tmp <- optimsimplex(x0=c(-1.2,1.0), fun=mycostf,method='randbounds',
+tmp <- optimsimplex(x0=c(-1.2,1.0), fun=mycostf, method='randbounds',
                     boundsmin=c(-5.0,-5.0), boundsmax=c(5.0,5.0), nbve=5, 
                     data=mystuff)
 
@@ -211,7 +211,7 @@ network map given in the \pkg{neldermead} package.
 \input{optimsimplex.setall}
 \input{optimsimplex.shrink}
 \input{optimsimplex.utils}
-\input{simplex}
+\input{osimplex}
 
 \clearpage
 \section{CeCILL FREE SOFTWARE LICENSE AGREEMENT}

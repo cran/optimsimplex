@@ -1,4 +1,4 @@
-# Copyright (C) 2010-2017 - Sebastien Bihorel
+# Copyright (C) 2010-2018 - Sebastien Bihorel
 #
 # This file must be used under the terms of the CeCILL.
 # This source file is licensed as described in the file COPYING, which
@@ -7,7 +7,7 @@
 # http://www.cecill.info/licences/Licence_CeCILL_V2-en.txt
 #
 
-print.simplex <- function(x=NULL,...){
+print.osimplex <- function(x=NULL,...){
   
   cat(sprintf('Dimension: n=%d\n',x$n))
   cat(sprintf('Number of vertices: nbve=%d\n',x$nbve))

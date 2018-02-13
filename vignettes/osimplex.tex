@@ -1,31 +1,31 @@
 \inputencoding{utf8}
-\HeaderA{simplex}{S3 simplex and vertex classes}{simplex}
-\aliasA{is.simplex}{simplex}{is.simplex}
-\aliasA{is.vertex}{simplex}{is.vertex}
-\aliasA{print.simplex}{simplex}{print.simplex}
-\aliasA{print.vertex}{simplex}{print.vertex}
-\aliasA{vertex}{simplex}{vertex}
-\keyword{method}{simplex}
+\HeaderA{osimplex}{S3 osimplex and vertex classes}{osimplex}
+\aliasA{is.osimplex}{osimplex}{is.osimplex}
+\aliasA{is.vertex}{osimplex}{is.vertex}
+\aliasA{print.osimplex}{osimplex}{print.osimplex}
+\aliasA{print.vertex}{osimplex}{print.vertex}
+\aliasA{vertex}{osimplex}{vertex}
+\keyword{method}{osimplex}
 %
 \begin{Description}\relax
-These functions support the S3 classes 'simplex' and 'vertex'. They are 
+These functions support the S3 classes 'osimplex' and 'vertex'. They are 
 intended to either create objects of these classes or check if an object is 
 of these classes
 \end{Description}
 %
 \begin{Usage}
 \begin{verbatim}
-  simplex(verbose,x,n,fv,nbve)
+  osimplex(verbose,x,n,fv,nbve)
   
   vertex(x,n,fv)
   
-  ## S3 method for class 'simplex'
+  ## S3 method for class 'osimplex'
 print(x,...)
   
   ## S3 method for class 'vertex'
 print(x,...)
   
-  ## S3 method for class 'simplex'
+  ## S3 method for class 'osimplex'
 is(x)
   
   ## S3 method for class 'vertex'
@@ -51,7 +51,7 @@ A simplex of size n x nbve is essentially a collection of vertex of size n.
 \end{Details}
 %
 \begin{Value}
-\code{simplex} returns a list with the following elements: verbose, x, n, fv, 
+\code{osimplex} returns a list with the following elements: verbose, x, n, fv, 
 and nbve.
 \code{vertex} returns a list with the following elements: x, n, and fv.
 \end{Value}

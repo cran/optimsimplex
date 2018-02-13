@@ -1,28 +1,28 @@
-\name{simplex}
-\alias{simplex}
+\name{osimplex}
+\alias{osimplex}
 \alias{vertex}
-\alias{print.simplex}
-\alias{is.simplex}
+\alias{print.osimplex}
+\alias{is.osimplex}
 \alias{print.vertex}
 \alias{is.vertex}
 \title{
-  S3 simplex and vertex classes
+  S3 osimplex and vertex classes
 }
 \description{
-  These functions support the S3 classes 'simplex' and 'vertex'. They are 
+  These functions support the S3 classes 'osimplex' and 'vertex'. They are 
   intended to either create objects of these classes or check if an object is 
   of these classes
 }
 \usage{
-  simplex(verbose,x,n,fv,nbve)
+  osimplex(verbose,x,n,fv,nbve)
   
   vertex(x,n,fv)
   
-  \method{print}{simplex}(x,...)
+  \method{print}{osimplex}(x,...)
   
   \method{print}{vertex}(x,...)
   
-  \method{is}{simplex}(x)
+  \method{is}{osimplex}(x)
   
   \method{is}{vertex}(x)
 }
@@ -40,7 +40,7 @@
   A simplex of size n x nbve is essentially a collection of vertex of size n. 
 }
 \value{
-  \code{simplex} returns a list with the following elements: verbose, x, n, fv, 
+  \code{osimplex} returns a list with the following elements: verbose, x, n, fv, 
   and nbve.
   \code{vertex} returns a list with the following elements: x, n, and fv.
 }

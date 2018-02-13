@@ -1,3 +1,7 @@
+2018/02/12 Sebastien Bihorel <sb.pmlab@gmail.com>
+  
+  * Rename simplex class into osimplex to accommodate new CRAN checks
+  
 2017/07/22 Sebastien Bihorel <sb.pmlab@gmail.com>
   
   * Bug fix in optimsimplex for Spendley method
