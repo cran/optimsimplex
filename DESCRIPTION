@@ -1,11 +1,10 @@
 Package: optimsimplex
 Type: Package
 Title: R Port of the 'Scilab' Optimsimplex Module
-Version: 1.0-7
-Date: 2018-02-12
-Author: Sebastien Bihorel, Michael Baudin (author of the original
-        module)
-Maintainer: Sebastien Bihorel <sb.pmlab@gmail.com>
+Version: 1.0-8
+Date: 2022-01-28
+Authors@R: c(person("Sebastien","Bihorel",role=c("aut","cre"),email="sb.pmlab@gmail.com"),
+             person("Michael","Baudin",role=c("aut")))
 Description: Provides a building block for optimization algorithms
         based on a simplex. The 'optimsimplex' package may be used in the
         following optimization methods: the simplex method of Spendley
@@ -13,11 +12,17 @@ Description: Provides a building block for optimization algorithms
         Nelder and Mead (1965) <doi:10.1093/comjnl/7.4.308>, Box's algorithm for
         constrained optimization (1965) <doi:10.1093/comjnl/8.1.42>, the 
         multi-dimensional search by Torczon (1989) 
-        <http://www.cs.wm.edu/~va/research/thesis.pdf>, etc...
+        <https://www.cs.wm.edu/~va/research/thesis.pdf>, etc...
 Depends: optimbase (>= 1.0-8),methods
+Suggests: knitr (>= 1.28),rmarkdown (>= 2.2)
 License: CeCILL-2
+Encoding: UTF-8
+VignetteBuilder: knitr
 LazyLoad: yes
 NeedsCompilation: no
-Packaged: 2018-02-13 02:08:04 UTC; sebastien
+Packaged: 2022-01-28 11:57:01 UTC; sebastien
+Author: Sebastien Bihorel [aut, cre],
+  Michael Baudin [aut]
+Maintainer: Sebastien Bihorel <sb.pmlab@gmail.com>
 Repository: CRAN
-Date/Publication: 2018-02-13 22:00:40 UTC
+Date/Publication: 2022-01-28 21:10:06 UTC

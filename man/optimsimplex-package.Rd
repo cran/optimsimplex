@@ -38,8 +38,8 @@
   \tabular{ll}{
   Package: \tab optimsimplex\cr
   Type: \tab Package\cr
-  Version: \tab 1.0-7\cr
-  Date: \tab 2018-02-12\cr
+  Version: \tab 1.0-8\cr
+  Date: \tab 2022-01-28\cr
   License: \tab CeCILL-2\cr
   LazyLoad: \tab yes
   }

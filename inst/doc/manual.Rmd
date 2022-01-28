@@ -1,0 +1,177 @@
+---
+title: "Introduction to the `optimsimplex` package"
+author: "Sebastien Bihorel"
+bibliography: optimsimplex_manual.bib
+csl: pharmaceutical-research.csl
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+vignette: >
+  %\VignetteIndexEntry{manual}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r echo = FALSE, message = FALSE}
+require(optimsimplex)
+```
+
+`optimsimplex` is a R port of a module originally developed for Scilab version
+5.2.1 by Michael Baudin (INRIA - DIGITEO). Information about this software can
+be found at [www.scilab.org](https://www.scilab.org). The following documentation as well as the
+content of the functions .Rd files are adaptations of the documentation provided
+with the original Scilab optimsimplex module.
+
+# Description
+
+The goal of this package is to provide a building block for optimization
+algorithms based on a simplex. The `optimsimplex` package may be used in the
+following optimization methods:
+
+* the simplex method Spendley *et al.*,
+* the method of Nelder and Mead,
+* the Box's algorithm for constrained optimization,
+* the multi-dimensional search by Torczon,
+* etc ...
+
+This set of commands allows to manage a simplex made of $k\ge n+1$ points in a
+$n$-dimensional space. This component is the building block for a class of
+direct search optimization methods such as the Nelder-Mead algorithm or
+Torczon's Multi-Dimensionnal Search.
+
+A simplex is designed as a collection of $k\ge n+1$ vertices. Each vertex is
+made of a point and a function value at that point.
+
+The simplex can be created with various shapes. It can be configured and
+queried at will. The simplex can also be reflected or shrinked. The simplex
+gradient can be computed with a order 1 forward formula and with a order 2
+centered formula.
+
+The `optimsimplex` function allows to create a simplex. If vertices
+coordinates are given, there are registered in the simplex. If a function is
+provided, it is evaluated at each vertex. Several functions allow
+to create a simplex with special shapes and methods, including axes-by-axes
+(`optimsimplex.axes`), regular (`optimsimplex.spendley`), randomized
+bounds simplex with arbitrary $nbve$ vertices (`optimsimplex.randbounds`)
+and an heuristical small variation around a given point
+(`optimsimplex.pfeffer`).
+
+In the functions provided in this package, simplices and vertices are, depending
+on the functions either input or output arguments. The following general
+principle have been used to manage the storing of the coordinates of the points.
+
+* The vertices are stored row by row, while the coordinates are stored
+column by column. This implies the following rules.
+* The coordinates of a vertex are stored in a row vector, i.e. a 1 x $n$ matrix
+where $n$ is the dimension of the space.
+* The function values are stored in a column vector, i.e. a $nbve$ x 1 matrix
+where $nbve$ is the number of vertices.
+
+# Computation of function value at the given vertices
+
+Most functions in the `optimsimplex` package accept a `fun` argument, which 
+corresponds to the function to be evaluated at the given vertices. The function
+is expected to have the following input and output arguments:
+```{r eval=FALSE}
+   myfunction <- function(x, this){
+     ...
+     return(list(f=f,this=this))
+   }
+```
+
+where `x` is a row vector, `f` is the function value, and `this` an optional 
+user-defined data passed to the function. If data is provided, it is
+passed to the callback function both as an input and output argument.
+`data` may be used if the function uses some additional parameters. It is
+returned as an output parameter because the function may modify the data while
+computing the function value. This feature may be used, for example, to count
+the number of times that the function has been called.
+
+# Examples
+
+## Creating a simplex given vertex coordinates
+
+In the following example, one creates a simplex with known vertices coordinates
+and queries the new object. The function values at the vertices are unset.
+ 
+```{r}
+coords <- matrix(c(0,1,0,0,0,1),ncol=2)
+tmp <- optimsimplex(coords=coords)
+s1 <- tmp$newobj
+s1
+optimsimplex.getallx(s1)
+optimsimplex.getn(s1)
+optimsimplex.getnbve(s1)
+```
+
+## Creating a simplex with randomized bounds
+
+In the following example, one creates a simplex with in the 2D domain
+$c(-5, 5)^{}2$, with c(-1.2, 1.0) as the first vertex. One uses the randomized
+bounds method to generate a simplex with 5 vertices. The function takes an
+additional argument `this`, which counts the number of times the function
+is called. After the creation of the simplex, the value of `this$nb` is 5,
+which is the expected result because there is one function call by vertex.
+
+```{r}
+rosenbrock <- function(x){
+  y <- 100*(x[2]-x[1]^2)^2+(1-x[1])^2
+}
+
+mycostf <- function(x, this){
+  y <- rosenbrock(x)
+  this$nb <- this$nb+1
+  return(list(f=y,this=this))
+}
+
+mystuff <- list(nb=0)
+
+tmp <- optimsimplex(x0=c(-1.2,1.0), fun=mycostf, method='randbounds',
+                    boundsmin=c(-5.0,-5.0), boundsmax=c(5.0,5.0), nbve=5, 
+                    data=mystuff)
+
+tmp$newobj
+
+tmp$data
+
+cat(sprintf("Function evaluations: %d\n",tmp$data$nb))
+```
+
+# Initial simplex strategies
+
+In this section, we analyse the various initial simplex which are provided in
+this component.
+
+It is known that direct search methods based on simplex designs are very
+sensitive to the initial simplex. This is why the current component provides
+various ways to create such an initial simplex.
+
+The first historical simplex-based algorithm is the one presented in "Sequential
+Application of Simplex Designs in Optimisation and Evolutionary Operation" by W.
+Spendley, G. R. Hext and F. R. Himsworth. The "spendley" simplex creates the
+regular simplex which is presented in the paper @spendley_1962.
+
+The "randbounds" simplex is due to M.J. Box in "A New Method of Constrained
+Optimization and a Comparison With Other Methods" @box_1965.
+
+Pfeffer's method is an heuristic which is presented in "Global Optimization Of
+Lennard-Jones Atomic Clusters" by E. Fan @fan_2002. It is due to L.
+Pfeffer at Stanford and it is used in the `fminsearch` function from the
+`neldermead` package.
+
+# Network of `optimsimplex` functions
+
+The network of functions provided in `optimsimplex` is illustrated in the
+network map given in the `neldermead` package.
+
+# References
+
+The functions distributed in `optimsimplex` are also based upon the work from 
+Nelder and Mead @neldermead_1965, Kelley @kelley_1999, Han and
+Neumann @han_2006, Torczon torczon_1989, Burmen et al.
+@burmen_2006, and Price *and al.* @price_2002.
